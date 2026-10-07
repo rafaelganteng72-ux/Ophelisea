@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-slogan: "Gochi Hand", cursive;
+  --font-display: "Fredoka", ui-rounded, sans-serif;
+  --font-caption: "Comfortaa", system-ui, sans-serif;
+  --font-nav: "Poppins", system-ui, sans-serif;
+  --color-violet: #6a29c2;
+  --color-heart: #ff4d6d;
+  --animate-wiggle: wiggle 0.9s ease-in-out infinite;
+  --animate-floaty: floaty 6s ease-in-out infinite;
+}
+
+@keyframes wiggle { 0%,100% { transform: rotate(-4deg) scale(1.08) } 50% { transform: rotate(4deg) scale(1.14) } }
+@keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+@keyframes drift { 50% { translate: 0 -14px } }
+
+html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+section { scroll-snap-align: start; }
+body { font-family: var(--font-caption); background: #2d0043; color: #fff; overflow-x: hidden; }
+.diamond-float { animation: drift 9s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
